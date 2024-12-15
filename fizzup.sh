@@ -22,7 +22,7 @@ GPU_UNITS="0"
 GPU_PRICE="0"
 GPU_MEMORY="0"
 GPU_ID=""
-OS_ID="wsl"
+OS_ID="linux"
 
 # Function to detect the operating system
 detect_os() {
