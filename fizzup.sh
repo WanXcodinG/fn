@@ -9,10 +9,10 @@ FIZZUP_VERSION="v1.1.2"
 GATEWAY_ADDRESS="gwsing.testnetcsphn.xyz" # Provider domain: example = provider.devnetcsphn.com
 GATEWAY_PROXY_PORT="8553" # Proxyport = 8553
 GATEWAY_WEBSOCKET_PORT="8544" # ws url of the gateway example= ws://provider.devnetcsphn.com:8544
-CPU_PRICE="3"
-CPU_UNITS="4"
-MEMORY_PRICE="0.8"
-MEMORY_UNITS="8"
+CPU_PRICE="3.75"
+CPU_UNITS="5"
+MEMORY_PRICE="1"
+MEMORY_UNITS="10"
 STORAGE_PRICE="1"
 WALLET_ADDRESS="0x1785F6653e97218dcac5052cBA779d8797cC1065" 
 USER_TOKEN="0x4fc32979b3062c77105de18295a5009d6cf8bbb518cc87a402693d0990048ed16e38c8849e527f214a143d4d9b3c527d32d2baa84347b0224661c8112ed1128101"
@@ -48,12 +48,6 @@ if [ "$OS" != "$OS_ID" ]; then
     exit 1
 fi
 
-get_mac_chip_info() {
-    if [[ "$(uname -s)" != "Darwin" ]]; then
-        echo "unknown"
-        return
-    fi
-
 # Install Docker for Ubuntu Linux
 install_docker_ubuntu() {
     echo "Checking if Docker is installed..."
@@ -86,6 +80,12 @@ install_docker_ubuntu() {
 if [ "$OS" = "linux" ]; then
     install_docker_ubuntu
 fi
+
+get_mac_chip_info() {
+    if [[ "$(uname -s)" != "Darwin" ]]; then
+        echo "unknown"
+        return
+    fi
 
     local arch=$(uname -m)
     if [[ "$arch" != "arm64" ]]; then
